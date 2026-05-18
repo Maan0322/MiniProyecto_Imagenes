@@ -1,0 +1,172 @@
+Traceback (most recent call last):
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import cv2
+import numpy as np
+
+from tqdm import tqdm
+
+for idx in tqdm(range(len(df_grouped))):
+
+    row = df_grouped.iloc[idx]
+
+    img_id = row['id']
+
+    h = int(row['image_height'])
+
+    w = int(row['image_width'])
+
+    img_path = os.path.join(
+        TRAIN_PATH,
+        f"{img_id}.png"
+    )
+
+    img = cv2.imread(
+        img_path,
+        cv2.IMREAD_GRAYSCALE
+    )
+
+    img = cv2.cvtColor(
+        img,
+        cv2.COLOR_GRAY2RGB
+    )
+
+    img = cv2.resize(
+        img,
+        (TARGET_SIZE, TARGET_SIZE)
+    )
+
+    img = img.astype(np.float32) / 255.0
+
+    anns = df[
+        df['id'] == img_id
+    ]['annotation'].values
+
+    masks  = []
+
+    boxes  = []
+
+    labels = []
+
+    for rle in anns:
+
+        mask = rle_decode(rle, (h, w))
+
+        mask = cv2.resize(
+            mask,
+            (TARGET_SIZE, TARGET_SIZE),
+            interpolation=cv2.INTER_NEAREST
+        )
+
+        pos = np.where(mask > 0)
+
+        if len(pos[0]) == 0:
+            continue
+
+        y1, y2 = pos[0].min(), pos[0].max()
+
+        x1, x2 = pos[1].min(), pos[1].max()
+
+        if x2 <= x1 or y2 <= y1:
+            continue
+
+        masks.append(mask.astype(np.uint8))
+
+        boxes.append([x1, y1, x2, y2])
+
+        labels.append(1)
+
+    masks = np.array(
+        masks,
+        dtype=np.uint8
+    )
+
+    boxes = np.array(
+        boxes,
+        dtype=np.float32
+    )
+
+    labels = np.array(
+        labels,
+        dtype=np.int64
+    )
+
+    np.save(
+        os.path.join(
+            IMG_DIR,
+            f"{img_id}.npy"
+        ),
+        img
+    )
+
+    np.save(
+        os.path.join(
+            MASK_DIR,
+            f"{img_id}.npy"
+        ),
+        masks
+    )
+
+    np.save(
+        os.path.join(
+            BOX_DIR,
+            f"{img_id}.npy"
+        ),
+        boxes
+    )
+
+    np.save(
+        os.path.join(
+            LABEL_DIR,
+            f"{img_id}.npy"
+        ),
+        labels
+    )
+------------------
+
+----- stderr -----
+  0%|                                               | 0/606 [00:00<?, ?it/s]
+----- stderr -----
+  0%|                                               | 0/606 [00:00<?, ?it/s]
+----- stderr -----
+
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[11][39m[32m, line 91[39m
+[32m     87[39m         labels,
+[32m     88[39m         dtype=np.int64
+[32m     89[39m     )
+[32m     90[39m 
+[32m---> [39m[32m91[39m     np.save(
+[32m     92[39m         os.path.join(
+[32m     93[39m             IMG_DIR,
+[32m     94[39m             [33mf"{img_id}.npy"[39m
+
+[36mFile [39m[32m~/miniconda3/envs/deeplearning/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py:568[39m, in [36msave[39m[34m(file, arr, allow_pickle)[39m
+[32m    566[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m file.endswith([33m'[39m[33m.npy[39m[33m'[39m):
+[32m    567[39m         file = file + [33m'[39m[33m.npy[39m[33m'[39m
+[32m--> [39m[32m568[39m     file_ctx = [30;43mopen[39;49m[30;43m([39;49m[30;43mfile[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m"[39;49m[30;43mwb[39;49m[30;43m"[39;49m[30;43m)[39;49m
+[32m    570[39m [38;5;28;01mwith[39;00m file_ctx [38;5;28;01mas[39;00m fid:
+[32m    571[39m     arr = np.asanyarray(arr)
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: '../models/maskrcnn/preprocessed/images/0030fd0e6378.npy'
+

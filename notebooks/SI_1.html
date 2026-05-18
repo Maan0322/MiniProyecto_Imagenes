@@ -1,0 +1,1489 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bloque 1: Segmentación de imágenes &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SI_1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Modelación" href="SI_MODELS.html" />
+    <link rel="prev" title="Resumen Proyecto Segmentación" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Resumen Proyecto Segmentación
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Bloque 1: Segmentación de imágenes</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SI_MODELS.html"><strong>5. Modelación</strong></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/SI_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bloque 1: Segmentación de imágenes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias"><strong>Librerías</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos"><strong>1. Carga de datos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-de-dataset-estructurado"><strong>2. Construcción de dataset estructurado</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda"><strong>3. Análisis Exploratorio de Datos (EDA)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-de-imagenes"><strong>3.1. Tamaño de imágenes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-celulas-por-imagen"><strong>3.2. Número de células por imagen</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#area-de-celulas"><strong>3.3. Área de células</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensidad-de-pixeles"><strong>3.4. Intensidad de píxeles</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-cualitativa"><strong>3.5. Visualización cualitativa</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-del-eda"><strong>3.6. Conclusiones del EDA</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesamiento"><strong>4. Preprocesamiento</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacion-redimensionamiento-conversion-de-mascaras"><strong>4.1. Normalización, Redimensionamiento, conversión de máscaras</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-augmentation"><strong>4.2. Data augmentation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exportacion-de-datos-preprocesados"><strong>Exportación de datos preprocesados</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== PyTorch ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Versión: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CUDA disponible: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPU: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Operación real en GPU</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tensor en: </span><span class="si">{</span><span class="n">z</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2"> ✅&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== TensorFlow ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Versión: </span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPUs: </span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Operación real en GPU</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;/GPU:0&#39;</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TF operación en GPU completada ✅&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✅ Todo funcionando con GPU&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779067419.668010  173771 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779067420.837318  173771 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779067424.424173  173771 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== PyTorch ===
+Versión: 2.12.0.dev20260407+cu128
+CUDA disponible: True
+GPU: NVIDIA GeForce RTX 5050 Laptop GPU
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor en: cuda:0 ✅
+
+=== TensorFlow ===
+Versión: 2.21.0
+GPUs: [PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF operación en GPU completada ✅
+
+✅ Todo funcionando con GPU
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779067439.406235  173771 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1779067439.421486  173771 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1779067439.436354  173771 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="bloque-1-segmentacion-de-imagenes">
+<h1><strong>Bloque 1: Segmentación de imágenes</strong><a class="headerlink" href="#bloque-1-segmentacion-de-imagenes" title="Link to this heading">#</a></h1>
+<section id="librerias">
+<h2><strong>Librerías</strong><a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<p>Se importan las librerías necesarias para ejecutar el proyecto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">albumentations.pytorch</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToTensorV2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="carga-de-datos">
+<h2><strong>1. Carga de datos</strong><a class="headerlink" href="#carga-de-datos" title="Link to this heading">#</a></h2>
+<p>Se definen las rutas al datset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BASE_PATH</span>  <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;/home/moon/DEEP/MP3/data&quot;</span>
+<span class="n">TRAIN_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_PATH</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">)</span>
+<span class="n">CSV_PATH</span>   <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_PATH</span><span class="p">,</span> <span class="s2">&quot;train.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cantidades de imágenes: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">TRAIN_PATH</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cantidades de imágenes: 606
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se carga el archivo de anotaciones <code class="docutils literal notranslate"><span class="pre">train.csv</span></code>, el cual contiene una fila por cada <strong>célula individual</strong> detectada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CSV_PATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 73585 entries, 0 to 73584
+Data columns (total 9 columns):
+ #   Column             Non-Null Count  Dtype
+---  ------             --------------  -----
+ 0   id                 73585 non-null  str  
+ 1   annotation         73585 non-null  str  
+ 2   width              73585 non-null  int64
+ 3   height             73585 non-null  int64
+ 4   cell_type          73585 non-null  str  
+ 5   plate_time         73585 non-null  str  
+ 6   sample_date        73585 non-null  str  
+ 7   sample_id          73585 non-null  str  
+ 8   elapsed_timedelta  73585 non-null  str  
+dtypes: int64(2), str(7)
+memory usage: 5.1 MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>annotation</th>
+      <th>width</th>
+      <th>height</th>
+      <th>cell_type</th>
+      <th>plate_time</th>
+      <th>sample_date</th>
+      <th>sample_id</th>
+      <th>elapsed_timedelta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0030fd0e6378</td>
+      <td>118145 6 118849 7 119553 8 120257 8 120961 9 1...</td>
+      <td>704</td>
+      <td>520</td>
+      <td>shsy5y</td>
+      <td>11h30m00s</td>
+      <td>2019-06-16</td>
+      <td>shsy5y[diff]_E10-4_Vessel-714_Ph_3</td>
+      <td>0 days 11:30:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0030fd0e6378</td>
+      <td>189036 1 189739 3 190441 6 191144 7 191848 8 1...</td>
+      <td>704</td>
+      <td>520</td>
+      <td>shsy5y</td>
+      <td>11h30m00s</td>
+      <td>2019-06-16</td>
+      <td>shsy5y[diff]_E10-4_Vessel-714_Ph_3</td>
+      <td>0 days 11:30:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0030fd0e6378</td>
+      <td>173567 3 174270 5 174974 5 175678 6 176382 7 1...</td>
+      <td>704</td>
+      <td>520</td>
+      <td>shsy5y</td>
+      <td>11h30m00s</td>
+      <td>2019-06-16</td>
+      <td>shsy5y[diff]_E10-4_Vessel-714_Ph_3</td>
+      <td>0 days 11:30:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0030fd0e6378</td>
+      <td>196723 4 197427 6 198130 7 198834 8 199538 8 2...</td>
+      <td>704</td>
+      <td>520</td>
+      <td>shsy5y</td>
+      <td>11h30m00s</td>
+      <td>2019-06-16</td>
+      <td>shsy5y[diff]_E10-4_Vessel-714_Ph_3</td>
+      <td>0 days 11:30:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0030fd0e6378</td>
+      <td>167818 3 168522 5 169225 7 169928 8 170632 9 1...</td>
+      <td>704</td>
+      <td>520</td>
+      <td>shsy5y</td>
+      <td>11h30m00s</td>
+      <td>2019-06-16</td>
+      <td>shsy5y[diff]_E10-4_Vessel-714_Ph_3</td>
+      <td>0 days 11:30:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El dataset contiene 73,585 filas que representan células individuales anotadas, distribuidas en 606 imágenes únicas. Tiene 9 columnas entre estas id, annotation, width, height, cell_type e incluye metadatos experimentales como plate_time, sample_date, sample_id y elapsed_timedelta, que registran condiciones del experimento microscópico. No hay valores nulos en ninguna columna. Cada fila comparte el mismo id con otras filas de la misma imagen, confirmando que una imagen puede contener múltiples células anotadas individualmente en formato RLE.</p>
+</section>
+<section id="construccion-de-dataset-estructurado">
+<h2><strong>2. Construcción de dataset estructurado</strong><a class="headerlink" href="#construccion-de-dataset-estructurado" title="Link to this heading">#</a></h2>
+<p>Se agrupan las máscaras de cada imagen en una sola fila para obtener
+una vista resumida a nivel de imagen. Esto permite analizar características globales como el número de células por imagen y el área de cada máscara.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rle_decode</span><span class="p">(</span><span class="n">mask_rle</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+    <span class="n">s</span>       <span class="o">=</span> <span class="n">mask_rle</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">starts</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">ends</span>    <span class="o">=</span> <span class="n">starts</span> <span class="o">+</span> <span class="n">lengths</span>
+    <span class="n">img</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="p">):</span>
+        <span class="n">img</span><span class="p">[</span><span class="n">lo</span><span class="p">:</span><span class="n">hi</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">rle_decode</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;annotation&#39;</span><span class="p">],</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">num_masks</span>    <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;annotation&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span>
+    <span class="n">cell_type</span>    <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;cell_type&#39;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">),</span>
+    <span class="n">image_width</span>  <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">),</span>
+    <span class="n">image_height</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">),</span>
+    <span class="n">area_total</span>   <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">),</span>
+    <span class="n">area_mean</span>    <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+    <span class="n">area_max</span>     <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span>
+    <span class="n">area_min</span>     <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;ruta_imagen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TRAIN_PATH</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total imágenes únicas : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tipos celulares:</span><span class="se">\n</span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Estadísticas de máscaras por imagen:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Estadísticas de área por máscara (píxeles):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total imágenes únicas : 606
+
+Tipos celulares:
+cell_type
+shsy5y    52286
+cort      10777
+astro     10522
+Name: count, dtype: int64
+
+Estadísticas de máscaras por imagen:
+count    606.000000
+mean     121.427393
+std      152.001676
+min        4.000000
+25%       28.000000
+50%       46.000000
+75%      140.250000
+max      790.000000
+Name: num_masks, dtype: float64
+
+Estadísticas de área por máscara (píxeles):
+count    73585.000000
+mean       324.212217
+std        420.259531
+min         30.000000
+25%        145.000000
+50%        215.000000
+75%        340.000000
+max      13327.000000
+Name: area, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>El dataset contiene 606 imágenes únicas con un total de 73,585 células anotadas. En cuanto a los tipos celulares, existe un desbalance notable: <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> domina ampliamente con 52,286 instancias (71%), mientras que <code class="docutils literal notranslate"><span class="pre">cort</span></code> y <code class="docutils literal notranslate"><span class="pre">astro</span></code> presentan frecuencias similares y significativamente menores, con 10,777 y 10,522 instancias respectivamente. Respecto al número de células por imagen, el promedio es de 121 células, pero la alta desviación estándar (152) junto con un rango que va de 4 a 790 indican una variabilidad extrema entre imágenes. El 50% de las imágenes contiene menos de 46 células, lo que sugiere que la distribución está sesgada hacia la derecha por un grupo reducido de imágenes muy densamente pobladas. En cuanto al área de las máscaras individuales, las células son en general pequeñas: la mediana es de apenas 215 píxeles, con un máximo de 13,327, lo que evidencia también una alta variabilidad en el tamaño celular dentro del dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>num_masks</th>
+      <th>cell_type</th>
+      <th>image_width</th>
+      <th>image_height</th>
+      <th>area_total</th>
+      <th>area_mean</th>
+      <th>area_max</th>
+      <th>area_min</th>
+      <th>ruta_imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0030fd0e6378</td>
+      <td>395</td>
+      <td>shsy5y</td>
+      <td>704</td>
+      <td>520</td>
+      <td>113307</td>
+      <td>286.853165</td>
+      <td>757</td>
+      <td>46</td>
+      <td>/home/moon/DEEP/MP3/data/train/0030fd0e6378.png</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0140b3c8f445</td>
+      <td>108</td>
+      <td>astro</td>
+      <td>704</td>
+      <td>520</td>
+      <td>86735</td>
+      <td>803.101852</td>
+      <td>7126</td>
+      <td>138</td>
+      <td>/home/moon/DEEP/MP3/data/train/0140b3c8f445.png</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01ae5a43a2ab</td>
+      <td>36</td>
+      <td>cort</td>
+      <td>704</td>
+      <td>520</td>
+      <td>11382</td>
+      <td>316.166667</td>
+      <td>522</td>
+      <td>149</td>
+      <td>/home/moon/DEEP/MP3/data/train/01ae5a43a2ab.png</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>026b3c2c4b32</td>
+      <td>42</td>
+      <td>cort</td>
+      <td>704</td>
+      <td>520</td>
+      <td>7660</td>
+      <td>182.380952</td>
+      <td>355</td>
+      <td>84</td>
+      <td>/home/moon/DEEP/MP3/data/train/026b3c2c4b32.png</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>029e5b3b89c7</td>
+      <td>34</td>
+      <td>cort</td>
+      <td>704</td>
+      <td>520</td>
+      <td>5753</td>
+      <td>169.205882</td>
+      <td>277</td>
+      <td>107</td>
+      <td>/home/moon/DEEP/MP3/data/train/029e5b3b89c7.png</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="analisis-exploratorio-de-datos-eda">
+<h2><strong>3. Análisis Exploratorio de Datos (EDA)</strong><a class="headerlink" href="#analisis-exploratorio-de-datos-eda" title="Link to this heading">#</a></h2>
+<section id="tamano-de-imagenes">
+<h3><strong>3.1. Tamaño de imágenes</strong><a class="headerlink" href="#tamano-de-imagenes" title="Link to this heading">#</a></h3>
+<p>Se analiza la distribución de las dimensiones (alto y ancho) de las imágenes
+del dataset. Esto permite determinar si todas las imágenes tienen el mismo tamaño o si existe variabilidad dimensional, lo cual es relevante para decidir la estrategia de redimensionamiento en el preprocesamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Histograma de alturas</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;image_height&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribución de alturas&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Alto (píxeles)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+
+<span class="c1"># Histograma de anchos</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;image_width&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribución de anchos&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Ancho (píxeles)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+
+<span class="c1"># Scatter plot alto vs ancho</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;image_width&#39;</span><span class="p">],</span> <span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;image_height&#39;</span><span class="p">],</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;seagreen&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Alto vs Ancho&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Ancho (píxeles)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Alto (píxeles)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Análisis de dimensiones de imágenes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Alturas únicas : </span><span class="si">{</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;image_height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Anchos únicos  : </span><span class="si">{</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;image_width&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/df653a78041eac143d6d7e563b7ba7491fd2279ed253eb03bf1b419612598ec2.png" src="../_images/df653a78041eac143d6d7e563b7ba7491fd2279ed253eb03bf1b419612598ec2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alturas únicas : [520]
+Anchos únicos  : [704]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las imágenes del dataset son completamente homogéneas en sus dimensiones: todas tienen exactamente 704 × 520 píxeles, sin ninguna variación. Esto se confirma en los histogramas, que muestran una única barra, y en el scatter plot, que concentra todos los puntos en una sola coordenada.</p>
+</section>
+<section id="numero-de-celulas-por-imagen">
+<h3><strong>3.2. Número de células por imagen</strong><a class="headerlink" href="#numero-de-celulas-por-imagen" title="Link to this heading">#</a></h3>
+<p>Se analiza la distribución del número de instancias celulares por imagen.
+Este análisis permite identificar si existe variabilidad en la densidad celular
+entre imágenes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Histograma</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribución de células por imagen&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Número de células&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> 
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Media: </span><span class="si">{</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mediana: </span><span class="si">{</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Boxplot por tipo celular</span>
+<span class="n">cell_types</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">data_box</span>   <span class="o">=</span> <span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ct</span><span class="p">][</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> 
+              <span class="k">for</span> <span class="n">ct</span> <span class="ow">in</span> <span class="n">cell_types</span><span class="p">]</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data_box</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">cell_types</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span>
+                <span class="n">medianprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Células por imagen según tipo celular&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tipo celular&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Número de células&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Análisis de densidad celular por imagen&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Estadísticas por tipo celular</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_grouped</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cell_type&#39;</span><span class="p">)[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_173771/857432673.py:19: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  axes[1].boxplot(data_box, labels=cell_types, patch_artist=True,
+</pre></div>
+</div>
+<img alt="../_images/d46aeb0cb01108b8b91829eaea0f710bfd06366170fd1b15b98967fe4c7ec3dc.png" src="../_images/d46aeb0cb01108b8b91829eaea0f710bfd06366170fd1b15b98967fe4c7ec3dc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           count    mean     std   min    25%    50%    75%    max
+cell_type                                                         
+astro      131.0   80.32   64.13   5.0   50.0   73.0  100.0  594.0
+cort       320.0   33.68   16.50   4.0   23.0   30.0   39.0  108.0
+shsy5y     155.0  337.33  149.60  49.0  235.5  324.0  429.0  790.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>La distribución del número de células por imagen es marcadamente asimétrica hacia la derecha, con una mediana de 46 células pero una media de 121, lo que indica que un grupo reducido de imágenes muy densamente pobladas eleva considerablemente el promedio. Al desagregar por tipo celular, las diferencias son sustanciales: las imágenes de <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> contienen en promedio 337 células (máximo 790), mientras que <code class="docutils literal notranslate"><span class="pre">astro</span></code> promedia 80 y <code class="docutils literal notranslate"><span class="pre">cort</span></code> apenas 34. Esto confirma que el tipo celular determina en gran medida la densidad de instancias por imagen, y que <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> representa el escenario más complejo para la segmentación por su alta densidad celular. El boxplot de <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> muestra además varios outliers extremos, lo que añade variabilidad adicional dentro de ese grupo.</p>
+</section>
+<section id="area-de-celulas">
+<h3><strong>3.3. Área de células</strong><a class="headerlink" href="#area-de-celulas" title="Link to this heading">#</a></h3>
+<p>Se analiza la distribución del área de cada máscara individual, medida en número de píxeles activos. Este análisis permite determinar si las células son pequeñas o grandes en términos relativos, y si existe variabilidad significativa en su tamaño dentro del dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Histograma de áreas</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribución de área por célula&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Área (píxeles)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Media: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mediana: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Boxplot por tipo celular</span>
+<span class="n">cell_types</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">data_box</span>   <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ct</span><span class="p">][</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">ct</span> <span class="ow">in</span> <span class="n">cell_types</span><span class="p">]</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data_box</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">cell_types</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span>
+                <span class="n">medianprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Área por célula según tipo celular&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tipo celular&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Área (píxeles)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Análisis de área celular&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Estadísticas por tipo celular</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cell_type&#39;</span><span class="p">)[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_173771/2792024020.py:18: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  axes[1].boxplot(data_box, labels=cell_types, patch_artist=True,
+</pre></div>
+</div>
+<img alt="../_images/5ea21d78a0159764bbdb314c5cb2fe16b7360b6120267085988d8947a8574086.png" src="../_images/5ea21d78a0159764bbdb314c5cb2fe16b7360b6120267085988d8947a8574086.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             count    mean     std   min    25%    50%     75%      max
+cell_type                                                              
+astro      10522.0  905.81  855.19  37.0  407.0  665.0  1098.0  13327.0
+cort       10777.0  240.16  139.17  33.0  151.0  208.0   288.0   2054.0
+shsy5y     52286.0  224.50  133.94  30.0  133.0  193.0   280.0   2254.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>La distribución del área celular es extremadamente asimétrica hacia la derecha, con la gran mayoría de células concentradas por debajo de los 500 píxeles, una mediana de 215 píxeles y una media de 324. Al desagregar por tipo celular, las diferencias son notables: <code class="docutils literal notranslate"><span class="pre">astro</span></code> presenta las células más grandes, con una media de 906 píxeles y un máximo de 13,327, lo que indica morfologías celulares considerablemente más extensas. En contraste, <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> y <code class="docutils literal notranslate"><span class="pre">cort</span></code> tienen células mucho más pequeñas y similares entre sí, con medias de 225 y 240 píxeles respectivamente. Los tres tipos muestran una cantidad importante de outliers en el extremo superior, lo que refleja variabilidad morfológica dentro de cada clase. Esta diferencia de escala entre tipos celulares es relevante para el diseño del modelo, ya que deberá ser capaz de segmentar instancias de tamaños muy distintos dentro de una misma imagen.</p>
+</section>
+<section id="intensidad-de-pixeles">
+<h3><strong>3.4. Intensidad de píxeles</strong><a class="headerlink" href="#intensidad-de-pixeles" title="Link to this heading">#</a></h3>
+<p>Se analiza la distribución de los valores de intensidad de los píxeles de las imágenes. Dado que las imágenes microscópicas son en escala de grises, se analiza un único canal. Este análisis permite identificar el rango dinámico de las imágenes, detectar posibles problemas de contraste, sobreexposición o subexposición, y orientar la estrategia de normalización en el preprocesamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_ids</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_grouped</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cell_type&#39;</span><span class="p">)</span>
+                        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+                        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+                        <span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">all_pixels</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">):</span>
+    <span class="n">ruta</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TRAIN_PATH</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">img_id</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">img</span>  <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">ruta</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+    <span class="n">all_pixels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">df_grouped</span><span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">img_id</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Intensidad&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Distribución de intensidad de píxeles por imagen&#39;</span><span class="p">,</span> 
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">all_pixels_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">all_pixels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media global    : </span><span class="si">{</span><span class="n">all_pixels_flat</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Desv. estándar  : </span><span class="si">{</span><span class="n">all_pixels_flat</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mínimo          : </span><span class="si">{</span><span class="n">all_pixels_flat</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Máximo          : </span><span class="si">{</span><span class="n">all_pixels_flat</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Percentil 25    : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">all_pixels_flat</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Percentil 75    : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">all_pixels_flat</span><span class="p">,</span><span class="w"> </span><span class="mi">75</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d86e94ec81f77f18408f40242929b2eda66a23304fc0a05bed9fd21f9cb39960.png" src="../_images/d86e94ec81f77f18408f40242929b2eda66a23304fc0a05bed9fd21f9cb39960.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media global    : 127.97
+Desv. estándar  : 14.19
+Mínimo          : 3
+Máximo          : 255
+Percentil 25    : 126.00
+Percentil 75    : 131.00
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las imágenes presentan una distribución de intensidad extremadamente concentrada, con una media global de 127.97, una desviación estándar de apenas 14.19 y un rango intercuartílico de solo 5 puntos (percentil 25: 126, percentil 75: 131). Esto indica que la gran mayoría de los píxeles se encuentran en valores de intensidad media, lo cual es característico de imágenes microscópicas de contraste de fase, donde el fondo y las células comparten rangos de intensidad similares y el contraste entre estructuras es bajo. Este comportamiento es consistente en los tres tipos celulares, aunque <code class="docutils literal notranslate"><span class="pre">cort</span></code> muestra una distribución ligeramente más dispersa. La baja variabilidad de intensidad confirma que la normalización estándar por división entre 255 será suficiente, pero también anticipa que la diferenciación entre células y fondo será un reto para los modelos, dado que no existe una separación clara en intensidad entre ambas regiones.</p>
+</section>
+<section id="visualizacion-cualitativa">
+<h3><strong>3.5. Visualización cualitativa</strong><a class="headerlink" href="#visualizacion-cualitativa" title="Link to this heading">#</a></h3>
+<p>Se visualizan 5 imágenes representativas del dataset junto con sus máscaras de segmentación superpuestas. Cada color representa una instancia celular distinta. Este análisis permite evaluar visualmente la calidad de las anotaciones, la morfología de las células y la complejidad de la tarea de segmentación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar 5 imágenes: al menos una de cada tipo celular</span>
+<span class="n">sample_imgs</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_grouped</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cell_type&#39;</span><span class="p">)</span>
+                         <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+                         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                         <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sample_imgs</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">img_id</span>    <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+    <span class="n">cell_type</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span>
+    <span class="n">ruta</span>      <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;ruta_imagen&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Leer imagen original en escala de grises y convertir a RGB para visualizar</span>
+    <span class="n">img_gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">ruta</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+    <span class="n">img_rgb</span>  <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2RGB</span><span class="p">)</span>
+
+    <span class="c1"># Obtener todas las máscaras de esta imagen</span>
+    <span class="n">mascaras</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;annotation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span>     <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;image_height&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;image_width&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Crear capa de color para superponer máscaras</span>
+    <span class="n">overlay</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mask_rle</span> <span class="ow">in</span> <span class="n">mascaras</span><span class="p">:</span>
+        <span class="n">mask</span>  <span class="o">=</span> <span class="n">rle_decode</span><span class="p">(</span><span class="n">mask_rle</span><span class="p">,</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">overlay</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="c1"># Imagen original</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original — </span><span class="si">{</span><span class="n">cell_type</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">img_id</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Imagen con máscaras superpuestas</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">overlay</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Máscaras superpuestas — </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> células&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Visualización cualitativa: imágenes y máscaras&#39;</span><span class="p">,</span> 
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/96b9f50f3cc4cb79c8054137c4c611d7b6f884d874ba2e2d56937f3ee95ecd73.png" src="../_images/96b9f50f3cc4cb79c8054137c4c611d7b6f884d874ba2e2d56937f3ee95ecd73.png" />
+</div>
+</div>
+<p>Las máscaras se ajustan correctamente a las células visibles en cada imagen. Cada tipo celular tiene una apariencia claramente distinta: las células <code class="docutils literal notranslate"><span class="pre">astro</span></code> son grandes y con formas alargadas e irregulares, lo que coincide con el mayor área promedio que encontramos antes. Las <code class="docutils literal notranslate"><span class="pre">cort</span></code> son pequeñas y redondeadas, bien separadas entre sí y fáciles de distinguir individualmente. Las <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> tienen un tamaño intermedio pero aparecen en cantidades muy altas, al punto de que en la imagen con 321 células prácticamente no queda espacio libre entre ellas, lo que las hace más difíciles de separar. En general el fondo de las imágenes tiene un tono muy parecido al de las propias células, lo que hace que a simple vista sea difícil distinguirlas sin las máscaras , por lo que este podría ser el principal reto para los modelos.</p>
+</section>
+<section id="conclusiones-del-eda">
+<h3><strong>3.6. Conclusiones del EDA</strong><a class="headerlink" href="#conclusiones-del-eda" title="Link to this heading">#</a></h3>
+<p><strong>¿Las imágenes son homogéneas o muy variables?</strong>
+Las imágenes son completamente homogéneas en tamaño (todas de 704 × 520 píxeles)
+y en rango de intensidad (media de 128 con desviación de apenas 14). Lo que sí
+varía considerablemente es el contenido: la densidad celular cambia mucho de una
+imagen a otra dependiendo del tipo celular.</p>
+<p><strong>¿Existe desbalance en número de células?</strong>
+Sí, y en dos niveles. A nivel de tipo celular, <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> tiene cinco veces más
+instancias que <code class="docutils literal notranslate"><span class="pre">astro</span></code> y <code class="docutils literal notranslate"><span class="pre">cort</span></code>. A nivel de imagen, algunas tienen apenas 4 células
+y otras llegan a 790, con la mayoría concentrada por debajo de 46, lo que indica
+un desbalance importante en densidad.</p>
+<p><strong>¿Las células son pequeñas o grandes?</strong>
+En general son pequeñas: la mediana de área es de 215 píxeles. Sin embargo <code class="docutils literal notranslate"><span class="pre">astro</span></code>
+es la excepción, con células significativamente más grandes (media de 906 píxeles)
+y formas irregulares extendidas. <code class="docutils literal notranslate"><span class="pre">cort</span></code> y <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> son mucho más pequeñas y
+compactas.</p>
+<p><strong>¿Hay ruido o artefactos?</strong>
+No se observaron artefactos evidentes en las imágenes revisadas. El principal
+desafío no es el ruido sino el bajo contraste entre las células y el fondo, ya
+que ambos comparten rangos de intensidad muy similares.</p>
+</section>
+</section>
+<section id="preprocesamiento">
+<h2><strong>4. Preprocesamiento</strong><a class="headerlink" href="#preprocesamiento" title="Link to this heading">#</a></h2>
+<p>En esta sección se hace la debida normalización, redimensionamiento, conversión de máscaras y data augmatation.</p>
+<p>En primer lugar, se realizan las dos primeras transformaciones mencionadas anteriormente. Por su parte, la normalización consiste en dividir los valores de píxeles entre 255, llevándolos al rango [0, 1]. El redimensionamiento lleva todas las imágenes a 512 × 512 píxeles,
+tamaño estándar para modelos de segmentación. Ambas transformaciones se aplican de forma sincronizada a la imagen y a su máscara combinada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Albumentations version : </span><span class="si">{</span><span class="n">A</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Torch version          : </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Albumentations version : 2.0.8
+Torch version          : 2.12.0.dev20260407+cu128
+</pre></div>
+</div>
+</div>
+</div>
+<section id="normalizacion-redimensionamiento-conversion-de-mascaras">
+<h3><strong>4.1. Normalización, Redimensionamiento, conversión de máscaras</strong><a class="headerlink" href="#normalizacion-redimensionamiento-conversion-de-mascaras" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TARGET_SIZE</span> <span class="o">=</span> <span class="mi">256</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preprocess_image_and_mask</span><span class="p">(</span><span class="n">img_id</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">train_path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">TARGET_SIZE</span><span class="p">):</span>
+    <span class="c1"># Cargar imagen original en escala de grises</span>
+    <span class="n">ruta</span>         <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">img_id</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">img_original</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">ruta</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span>         <span class="o">=</span> <span class="n">img_original</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="c1"># Construir máscara combinada sumando todas las instancias</span>
+    <span class="n">mascaras</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;annotation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">mask_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">rle</span> <span class="ow">in</span> <span class="n">mascaras</span><span class="p">:</span>
+        <span class="n">mask_combined</span> <span class="o">+=</span> <span class="n">rle_decode</span><span class="p">(</span><span class="n">rle</span><span class="p">,</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
+    <span class="n">mask_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">mask_combined</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># binaria: 0 fondo, 1 célula</span>
+
+    <span class="c1"># Normalización: llevar píxeles al rango [0, 1]</span>
+    <span class="n">img_norm</span> <span class="o">=</span> <span class="n">img_original</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+    <span class="c1"># Redimensionamiento a TARGET_SIZE x TARGET_SIZE</span>
+    <span class="n">img_resized</span>  <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img_norm</span><span class="p">,</span> <span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
+    <span class="n">mask_resized</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">mask_combined</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span>
+                              <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_NEAREST</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">img_original</span><span class="p">,</span> <span class="n">img_resized</span><span class="p">,</span> <span class="n">mask_combined</span><span class="p">,</span> <span class="n">mask_resized</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esta función <code class="docutils literal notranslate"><span class="pre">preprocess_image_and_mask</span></code> recibe el ID de una imagen y realiza todo el pipeline de preprocesamiento en un solo paso. Primero carga la imagen original en escala de grises, luego combina todas sus máscaras RLE individuales en una única máscara binaria donde 1 representa célula y 0 representa fondo. Después normaliza la imagen dividiendo entre 255 y redimensiona tanto la imagen como la máscara a 256 × 256 píxeles. Retorna las cuatro versiones (original y procesada, tanto de imagen como de máscara) para poder compararlas visualmente y confirmar que el preprocesamiento es correcto antes de pasarlas al modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probar con una imagen de cada tipo celular</span>
+<span class="n">sample_ids</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cell_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Imágenes de prueba: </span><span class="si">{</span><span class="n">sample_ids</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Imágenes de prueba: &lt;StringArray&gt;
+[&#39;5c84424f601c&#39;, &#39;7f21996da2e6&#39;, &#39;87e2b185e074&#39;]
+Length: 3, dtype: str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, se visualizan lado a lado la imagen original, la imagen preprocesada, la máscara binaria original y la máscara redimensionada, para verificar que el pipeline de preprocesamiento conserva correctamente la información relevante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+
+<span class="n">col_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Imagen original</span><span class="se">\n</span><span class="s1">(704×520)&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;Imagen procesada</span><span class="se">\n</span><span class="s1">(512×512, normalizada)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Máscara original</span><span class="se">\n</span><span class="s1">(binaria)&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;Máscara procesada</span><span class="se">\n</span><span class="s1">(512×512)&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">col_titles</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">):</span>
+    <span class="n">img_orig</span><span class="p">,</span> <span class="n">img_proc</span><span class="p">,</span> <span class="n">mask_orig</span><span class="p">,</span> <span class="n">mask_proc</span> <span class="o">=</span> <span class="n">preprocess_image_and_mask</span><span class="p">(</span>
+        <span class="n">img_id</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">TRAIN_PATH</span>
+    <span class="p">)</span>
+    <span class="n">cell_type</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">num_cells</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Imagen original</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_orig</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cell_type</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">num_cells</span><span class="si">}</span><span class="s2"> células&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Imagen procesada</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_proc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;min=</span><span class="si">{</span><span class="n">img_proc</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> max=</span><span class="si">{</span><span class="n">img_proc</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
+                         <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Máscara original</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask_orig</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Píxeles célula: </span><span class="si">{</span><span class="n">mask_orig</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Máscara procesada</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask_proc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Píxeles célula: </span><span class="si">{</span><span class="n">mask_proc</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Comparación visual: preprocesamiento de imágenes y máscaras&#39;</span><span class="p">,</span> 
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e259f1e8d6e370f8ee08ae8a190c688b837113e2f2ae0fdf9c3a6e5e034f88c3.png" src="../_images/e259f1e8d6e370f8ee08ae8a190c688b837113e2f2ae0fdf9c3a6e5e034f88c3.png" />
+</div>
+</div>
+<p>Se puede observar que las imágenes procesadas conservan toda la información visual de las originales, con valores confirmados en el rango [0, 1] como se esperaba. Las máscaras binarias muestran en blanco las regiones celulares y en negro el fondo, y se mantienen coherentes tras el redimensionamiento a 256 × 256. Se confirman además las diferencias morfológicas entre tipos celulares: <code class="docutils literal notranslate"><span class="pre">astro</span></code> ocupa una proporción grande de la imagen, <code class="docutils literal notranslate"><span class="pre">cort</span></code> tiene células muy pequeñas y dispersas, y <code class="docutils literal notranslate"><span class="pre">shsy5y</span></code> presenta una densidad intermedia pero con instancias de tamaño considerable). El redimensionamiento reduce ligeramente el conteo de píxeles celulares pero preserva la estructura espacial de las máscaras sin distorsiones visibles.</p>
+</section>
+<section id="data-augmentation">
+<h3><strong>4.2. Data augmentation</strong><a class="headerlink" href="#data-augmentation" title="Link to this heading">#</a></h3>
+<p>El aumento de datos aplica transformaciones aleatorias a las imágenes durante el entrenamiento para que el modelo vea mayor variedad de ejemplos sin necesidad de recolectar más datos. Las transformaciones se aplican de forma sincronizada a la imagen y a su máscara para mantener la correspondencia entre ambas. Las transformaciones aplicadas son: rotaciones, flips horizontales y verticales, y zoom aleatorio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pipeline de data augmentation con albumentations</span>
+<span class="n">augmentation_pipeline</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">HorizontalFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">VerticalFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">RandomRotate90</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">ShiftScaleRotate</span><span class="p">(</span><span class="n">shift_limit</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">scale_limit</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                       <span class="n">rotate_limit</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">TARGET_SIZE</span><span class="p">,</span> <span class="n">TARGET_SIZE</span><span class="p">),</span> 
+                    <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+<span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_augmentation</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="n">img_uint8</span>  <span class="o">=</span> <span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">mask_uint8</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+    <span class="n">augmented</span>     <span class="o">=</span> <span class="n">augmentation_pipeline</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">img_uint8</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask_uint8</span><span class="p">)</span>
+    <span class="n">img_aug</span>       <span class="o">=</span> <span class="n">augmented</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+    <span class="n">mask_aug</span>      <span class="o">=</span> <span class="n">augmented</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+    <span class="k">return</span> <span class="n">img_aug</span><span class="p">,</span> <span class="n">mask_aug</span>
+
+<span class="c1"># Probar con las mismas 3 imágenes de muestra</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+
+<span class="n">col_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Imagen original</span><span class="se">\n</span><span class="s1">(704×520)&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;Imagen procesada</span><span class="se">\n</span><span class="s1">(512×512, normalizada)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Imagen + Augmentation&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Máscara + Augmentation&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">col_titles</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">):</span>
+    <span class="n">img_orig</span><span class="p">,</span> <span class="n">img_proc</span><span class="p">,</span> <span class="n">mask_orig</span><span class="p">,</span> <span class="n">mask_proc</span> <span class="o">=</span> <span class="n">preprocess_image_and_mask</span><span class="p">(</span>
+        <span class="n">img_id</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">TRAIN_PATH</span>
+    <span class="p">)</span>
+    <span class="n">img_aug</span><span class="p">,</span> <span class="n">mask_aug</span> <span class="o">=</span> <span class="n">apply_augmentation</span><span class="p">(</span><span class="n">img_proc</span><span class="p">,</span> <span class="n">mask_proc</span><span class="p">)</span>
+
+    <span class="n">cell_type</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;cell_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">num_cells</span> <span class="o">=</span> <span class="n">df_grouped</span><span class="p">[</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_id</span><span class="p">][</span><span class="s1">&#39;num_masks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Imagen original</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_orig</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cell_type</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">num_cells</span><span class="si">}</span><span class="s2"> células&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Imagen procesada</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_proc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Imagen augmentada</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_aug</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Máscara augmentada</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask_aug</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Comparación visual: original → procesada → augmentada&#39;</span><span class="p">,</span> 
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/albumentations/core/validation.py:114: UserWarning: ShiftScaleRotate is a special case of Affine transform. Please use Affine transform instead.
+  original_init(self, **validated_kwargs)
+</pre></div>
+</div>
+<img alt="../_images/f3b19caa8a54df8a0646cb3da4512cdd5d816b654c694f68dcca5849071a6917.png" src="../_images/f3b19caa8a54df8a0646cb3da4512cdd5d816b654c694f68dcca5849071a6917.png" />
+</div>
+</div>
+<p>Note que el pipeline completo funciona correctamente en sus tres etapas. La normalización lleva los valores de píxeles al rango [0, 1] sin alterar la información visual. El redimensionamiento a 512 × 512 conserva las estructuras celulares sin distorsiones apreciables. El data augmentation aplica transformaciones aleatorias que en algunas imágenes son sutiles y en otras más evidentes, lo cual es el comportamiento esperado dado que cada transformación tiene una probabilidad de activarse del 50%. Lo más importante es que las máscaras de la última columna siempre corresponden espacialmente a su imagen augmentada, confirmando que la sincronización entre imagen y máscara funciona correctamente.</p>
+</section>
+</section>
+<section id="exportacion-de-datos-preprocesados">
+<h2><strong>Exportación de datos preprocesados</strong><a class="headerlink" href="#exportacion-de-datos-preprocesados" title="Link to this heading">#</a></h2>
+<p>Se guardan los dataframes y configuraciones necesarias para el notebook de
+modelación, evitando repetir el proceso de carga y preprocesamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carpeta de datos procesados</span>
+<span class="n">PROCESSED_PATH</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;/home/moon/DEEP/MP3/data/processed&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">PROCESSED_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Guardar dataframes</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROCESSED_PATH</span><span class="p">,</span> <span class="s2">&quot;df_annotations.csv&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_grouped</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROCESSED_PATH</span><span class="p">,</span> <span class="s2">&quot;df_grouped.csv&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Guardar configuración general</span>
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;BASE_PATH&quot;</span>  <span class="p">:</span> <span class="n">BASE_PATH</span><span class="p">,</span>
+    <span class="s2">&quot;TRAIN_PATH&quot;</span> <span class="p">:</span> <span class="n">TRAIN_PATH</span><span class="p">,</span>
+    <span class="s2">&quot;CSV_PATH&quot;</span>   <span class="p">:</span> <span class="n">CSV_PATH</span><span class="p">,</span>
+    <span class="s2">&quot;TARGET_SIZE&quot;</span><span class="p">:</span> <span class="n">TARGET_SIZE</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROCESSED_PATH</span><span class="p">,</span> <span class="s2">&quot;config.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Archivos guardados:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">PROCESSED_PATH</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Archivos guardados:
+  config.pkl
+  train_df.csv
+  df_grouped.csv
+  test_df.csv
+  df_annotations.csv
+  val_df.csv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Resumen Proyecto Segmentación</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="SI_MODELS.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>5. Modelación</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias"><strong>Librerías</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos"><strong>1. Carga de datos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-de-dataset-estructurado"><strong>2. Construcción de dataset estructurado</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda"><strong>3. Análisis Exploratorio de Datos (EDA)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-de-imagenes"><strong>3.1. Tamaño de imágenes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-celulas-por-imagen"><strong>3.2. Número de células por imagen</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#area-de-celulas"><strong>3.3. Área de células</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensidad-de-pixeles"><strong>3.4. Intensidad de píxeles</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-cualitativa"><strong>3.5. Visualización cualitativa</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-del-eda"><strong>3.6. Conclusiones del EDA</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesamiento"><strong>4. Preprocesamiento</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacion-redimensionamiento-conversion-de-mascaras"><strong>4.1. Normalización, Redimensionamiento, conversión de máscaras</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-augmentation"><strong>4.2. Data augmentation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exportacion-de-datos-preprocesados"><strong>Exportación de datos preprocesados</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
