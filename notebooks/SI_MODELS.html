@@ -422,7 +422,12 @@
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-comparativa-final"><strong>6. Tabla Comparativa Final</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-comparativa-final"><strong>6. Tabla Comparativa Final</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-final"><strong>7. Análisis Final</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>8. Conclusiones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Conclusiones</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -485,13 +490,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779067471.096986  174134 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-I0000 00:00:1779067471.177197  174134 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+I0000 00:00:1779072714.503384  196661 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779072715.050863  196661 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779067473.103060  174134 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779072717.599896  196661 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== PyTorch ===
@@ -507,9 +512,9 @@ Versión: 2.21.0
 GPUs: [PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779067475.207830  174134 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-W0000 00:00:1779067475.212815  174134 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-I0000 00:00:1779067475.220855  174134 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779072724.895809  196661 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1779072724.901068  196661 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1779072724.905320  196661 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF operación en GPU completada
@@ -704,7 +709,7 @@ divididas de la siguiente forma:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x73796c50eb70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x763bb3712b70&gt;
 </pre></div>
 </div>
 </div>
@@ -973,10 +978,10 @@ Anotaciones: 73,585
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                               | 0/606 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                              | 0/606 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                               | 0/606 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                              | 0/606 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -14086,6 +14091,25 @@ SAM/MedSAM               0.6447   0.4902   0.6473   0.7125   0.9606     45.21   
 </div>
 </div>
 <p>Al evaluar la tabla comparativa de los cinco modelos en la fase de test, los resultados demuestran de forma contundente que Hover-Net exhibe el desempeño óptimo y más robusto en todas las métricas analizadas, consolidándose como el mejor modelo al alcanzar un coeficiente Dice de <span class="math notranslate nohighlight">\(0.7243\)</span>, un IoU de <span class="math notranslate nohighlight">\(0.5742\)</span> y la menor distancia de Hausdorff (<span class="math notranslate nohighlight">\(38.89\)</span>). En contraste, mientras que arquitecturas basadas en SAM/MedSAM y Cellpose 2.0 logran segmentaciones moderadamente competitivas, los modelos Mask R-CNN y U-Net++ combinados con Watershed sufren un colapso catastrófico en el aprendizaje, registrando coeficientes Dice e IoU prácticamente nulos que evidencian una incapacidad absoluta para delimitar correctamente las estructuras de interés en las imágenes médicas evaluadas.</p>
+<section id="analisis-final">
+<h2><strong>7. Análisis Final</strong><a class="headerlink" href="#analisis-final" title="Link to this heading">#</a></h2>
+<p>En un análisis final podemos notar que el modelo que mejor funciona es Hover-Net, logrando un desempeño superior y robusto frente a todas las demás arquitecturas evaluadas en la fase de test. Numéricamente, este algoritmo lidera con contundencia al alcanzar el coeficiente Dice más alto de <span class="math notranslate nohighlight">\(0.7243\)</span>, un IoU de <span class="math notranslate nohighlight">\(0.5742\)</span>, un AUC de <span class="math notranslate nohighlight">\(0.9713\)</span> y la mayor precisión balanceada con <span class="math notranslate nohighlight">\(0.8485\)</span>. La razón principal de su éxito radica en su diseño especializado para la segmentación de núcleos, ya que incorpora ramas específicas para predecir no solo las máscaras de las células, sino también los gradientes de distancia horizontal y vertical de los centros nucleares. Esta separación espacial fundamentada teóricamente le permite a Hover-Net sortear con éxito los problemas de agrupamiento y superposición de estructuras anatómicas complejas.</p>
+<p>Por su parte, arquitecturas de propósito general o mal adaptadas sufren consecuencias críticas en este tipo de tareas. La inclusión de SAM/MedSAM y Cellpose 2.0 demostró ventajas competitivas (con Dice de <span class="math notranslate nohighlight">\(0.6447\)</span> y <span class="math notranslate nohighlight">\(0.4906\)</span> respectivamente) debido a su preentrenamiento masivo con imágenes biológicas y mapas de flujo de gradientes, lo que les permite mantener métricas de discriminación robustas frente al desbalance de clases. En el extremo opuesto, Mask R-CNN y la combinación de U-Net++ con Watershed sufrieron un colapso en el aprendizaje, registrando coeficientes Dice e IoU prácticamente nulos (como el Dice de <span class="math notranslate nohighlight">\(0.0062\)</span> de U-Net++). Esto demuestra que las redes densas convencionales sin mecanismos de atención espacial o configuradas con funciones de pérdida inadecuadas divergen severamente, siendo incapaces de mapear las fronteras celulares bajo las estrictas demandas analíticas del proyecto.</p>
+<p>Los errores más frecuentes se concentran en la inestabilidad del gradiente durante las fases de entrenamiento y en la generación de falsas alarmas espaciales debido al desbalance de clases. Durante las pruebas analíticas con el optimizador AdamW, el sistema experimentó anomalías matemáticas severas reflejadas en pérdidas de entrenamiento negativas absurdamente fuera de rango (como <span class="math notranslate nohighlight">\(-2.9761\)</span> en el Fold 4) y picos de error desmedidos que superaron magnitudes de <span class="math notranslate nohighlight">\(19.5666\)</span> y <span class="math notranslate nohighlight">\(20.4272\)</span>. Estos fenómenos evidencian una preocupante propensión a la explosión o colapso de gradientes cuando no se calibra la tasa de aprendizaje o la escala de la función de coste, provocando que el algoritmo salte destructivamente en el espacio de parámetros en lugar de converger armónicamente.</p>
+<p>A nivel de segmentación, el error más crítico es la proliferación de falsos positivos en el fondo de las imágenes, lo que desploma la confiabilidad clínica del sistema. La curva Precision-Recall reveló que, a excepción de sensibilidades nulas, la precisión se mantiene estancada por debajo del <span class="math notranslate nohighlight">\(0.10\)</span> a lo largo de casi todo el espectro de exhaustividad, confirmando que la inmensa mayoría de los píxeles clasificados como positivos corresponden en realidad a ruido o artefactos de la imagen. Adicionalmente, se identificó un error geométrico severo caracterizado por la generación de contornos sumamente erráticos; esto se valida mediante una distancia de Hausdorff promedio elevada de <span class="math notranslate nohighlight">\(76.52\)</span> y una volatilidad extrema que alcanza picos críticos de hasta <span class="math notranslate nohighlight">\(129.2478\)</span>, demostrando que los modelos fallidos trazan límites completamente alejados de las estructuras anatómicas reales.</p>
+<p>Por otra parte, las limitaciones del dataset se manifiestan en un desbalance de clases extremo a nivel de píxel y en una alta heterogeneidad morfológica entre las muestras que dificulta la generalización de los modelos. En el contexto de la segmentación médica analizada, la cantidad de píxeles pertenecientes a las estructuras de interés representa una fracción mínima en comparación con el tejido de fondo, lo que introduce un sesgo intrínseco donde los modelos convencionales tienden a saturar sus predicciones hacia la clase mayoritaria para minimizar globalmente el error. Esta asimetría severa explica el comportamiento plano en la curva Precision-Recall de los modelos fallidos, los cuales no logran discriminar la señal biológica legítima entre el predominio espacial del fondo.</p>
+<p>Asimismo, la variabilidad e inconsistencia de las muestras se traduce en una falta de homogeneidad estadística que impide un aprendizaje estable mediante validación cruzada. La distribución de los resultados analíticos detalló una alta dispersión en el rendimiento del algoritmo con una desviación estándar en el coeficiente Dice de <span class="math notranslate nohighlight">\(0.2065\)</span> y en el índice IoU de <span class="math notranslate nohighlight">\(0.1599\)</span>, confirmando que el comportamiento de la segmentación cambia de forma drástica entre una imagen y otra. Esta limitación estructural del conjunto de datos provoca que las particiones del K-Fold reaccionen de manera disímil, causando rebotas prematuros en el error de validación y obligando al freno temprano a detener el proceso ante la incapacidad de transferir el conocimiento de forma uniforme.</p>
+<p>Finalmente, el preprocesamiento ejerce un impacto determinante en la estabilidad numérica de la optimización y en la capacidad de los modelos para inicializar y delimitar correctamente las máscaras de segmentación. La incorporación de transformaciones dinámicas y el ajuste de hiperparámetros de infraestructura —como la integración en cargadores <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> con memoria anclada, procesamiento en paralelo con subprocesos y el uso de precisión mixta o TF32— resultan fundamentales para estabilizar el flujo de datos hacia la GPU. Sin embargo, las evidencias demuestran que un preprocesamiento que no incluya un escalado o normalización robusta de las variables de entrada induce directamente las pérdidas negativas y picos de error observados, lo que confirma que el éxito de la optimización depende críticamente de la homogeneización de los rangos numéricos antes de alimentar las redes.</p>
+</section>
+<section id="conclusiones">
+<h2><strong>8. Conclusiones</strong><a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+</section>
+<section id="id41">
+<h2>Conclusiones<a class="headerlink" href="#id41" title="Link to this heading">#</a></h2>
+<p>Para un despliegue en producción, el modelo seleccionado es <strong>Hover-Net</strong>. Los resultados experimentales demostraron que es la única arquitectura con la viabilidad y robustez clínica necesarias para afrontar la tarea, liderando de forma contundente con un coeficiente Dice de <span class="math notranslate nohighlight">\(0.7243\)</span>, un IoU de <span class="math notranslate nohighlight">\(0.5742\)</span> y un AUC de <span class="math notranslate nohighlight">\(0.9713\)</span>. Su éxito radica en su diseño especializado para la segmentación de núcleos, ya que sus ramas dedicadas a predecir los gradientes de distancia horizontal y vertical resuelven eficazmente el problema del agrupamiento y la superposición celular. Aunque modelos como SAM/MedSAM mostraron un rendimiento competitivo en discriminación, el costo computacional de sus transformadores y la necesidad de <em>prompts</em> los hacen menos eficientes en un entorno de alto flujo que la arquitectura dedicada de Hover-Net.</p>
+<p>Para mejorar el sistema en futuras iteraciones, el enfoque prioritario debe centrarse en mitigar la inestabilidad del entrenamiento y el desbalance de clases detectado en las redes densas convencionales. Es imperativo revisar la formulación matemática de la función de pérdida mediante la implementación de pérdidas híbridas ajustadas (como la combinación de <em>Dice Loss</em> y <em>Focal Loss</em>) para penalizar con mayor severidad los falsos positivos en el fondo de la imagen, los cuales desplomaron la precisión por debajo del <span class="math notranslate nohighlight">\(0.10\)</span> en las curvas Precision-Recall. Asimismo, se requiere aplicar técnicas de regularización de gradientes (<em>gradient clipping</em>) y una reducción drástica en la tasa de aprendizaje inicial para erradicar por completo los picos de error y las pérdidas negativas observadas durante la optimización.</p>
+<p>El principal aprendizaje derivado de este proyecto es que la segmentación de imágenes médicas no puede abordarse eficazmente mediante arquitecturas de propósito general sin una calibración y un preprocesamiento altamente especializado. El colapso catastrófico sufrido por Mask R-CNN y U-Net++ con Watershed evidenció que, ante un desbalance de clases extremo y una alta heterogeneidad morfológica (reflejada en la alta dispersión de la distancia de Hausdorff), las redes convencionales tienden a divergir o a saturar sus predicciones hacia la clase mayoritaria. En definitiva, el éxito de un sistema de aprendizaje profundo en el sector salud depende críticamente de la alineación entre la formulación matemática del modelo y la naturaleza geométrica y estadística de los datos biológicos.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -14255,7 +14279,12 @@ SAM/MedSAM               0.6447   0.4902   0.6473   0.7125   0.9606     45.21   
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-comparativa-final"><strong>6. Tabla Comparativa Final</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-comparativa-final"><strong>6. Tabla Comparativa Final</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-final"><strong>7. Análisis Final</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>8. Conclusiones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Conclusiones</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
