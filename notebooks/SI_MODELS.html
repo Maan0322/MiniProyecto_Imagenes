@@ -425,7 +425,6 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-comparativa-final"><strong>6. Tabla Comparativa Final</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-final"><strong>7. Análisis Final</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>8. Conclusiones</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Conclusiones</a></li>
 </ul>
 </li>
 </ul>
@@ -490,13 +489,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779074496.157445  208676 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-I0000 00:00:1779074496.271771  208676 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+I0000 00:00:1779075033.444614  211129 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779075033.690278  211129 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779074498.758955  208676 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779075036.480342  211129 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== PyTorch ===
@@ -512,9 +511,9 @@ Versión: 2.21.0
 GPUs: [PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779074505.636105  208676 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-W0000 00:00:1779074505.640850  208676 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-I0000 00:00:1779074505.643591  208676 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779075040.057176  211129 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1779075040.062470  211129 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1779075040.065982  211129 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF operación en GPU completada
@@ -709,7 +708,7 @@ divididas de la siguiente forma:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7377ef7f6b70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7ab3fffe2b70&gt;
 </pre></div>
 </div>
 </div>
@@ -14103,9 +14102,6 @@ SAM/MedSAM               0.6447   0.4902   0.6473   0.7125   0.9606     45.21   
 </section>
 <section id="conclusiones">
 <h2><strong>8. Conclusiones</strong><a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
-</section>
-<section id="id41">
-<h2>Conclusiones<a class="headerlink" href="#id41" title="Link to this heading">#</a></h2>
 <p>Para un despliegue en producción, el modelo seleccionado es <strong>Hover-Net</strong>. Los resultados experimentales demostraron que es la única arquitectura con la viabilidad y robustez clínica necesarias para afrontar la tarea, liderando de forma contundente con un coeficiente Dice de <span class="math notranslate nohighlight">\(0.7243\)</span>, un IoU de <span class="math notranslate nohighlight">\(0.5742\)</span> y un AUC de <span class="math notranslate nohighlight">\(0.9713\)</span>. Su éxito radica en su diseño especializado para la segmentación de núcleos, ya que sus ramas dedicadas a predecir los gradientes de distancia horizontal y vertical resuelven eficazmente el problema del agrupamiento y la superposición celular. Aunque modelos como SAM/MedSAM mostraron un rendimiento competitivo en discriminación, el costo computacional de sus transformadores y la necesidad de <em>prompts</em> los hacen menos eficientes en un entorno de alto flujo que la arquitectura dedicada de Hover-Net.</p>
 <p>Para mejorar el sistema en futuras iteraciones, el enfoque prioritario debe centrarse en mitigar la inestabilidad del entrenamiento y el desbalance de clases detectado en las redes densas convencionales. Es imperativo revisar la formulación matemática de la función de pérdida mediante la implementación de pérdidas híbridas ajustadas (como la combinación de <em>Dice Loss</em> y <em>Focal Loss</em>) para penalizar con mayor severidad los falsos positivos en el fondo de la imagen, los cuales desplomaron la precisión por debajo del <span class="math notranslate nohighlight">\(0.10\)</span> en las curvas Precision-Recall. Asimismo, se requiere aplicar técnicas de regularización de gradientes (<em>gradient clipping</em>) y una reducción drástica en la tasa de aprendizaje inicial para erradicar por completo los picos de error y las pérdidas negativas observadas durante la optimización.</p>
 <p>El principal aprendizaje derivado de este proyecto es que la segmentación de imágenes médicas no puede abordarse eficazmente mediante arquitecturas de propósito general sin una calibración y un preprocesamiento altamente especializado. El colapso catastrófico sufrido por Mask R-CNN y U-Net++ con Watershed evidenció que, ante un desbalance de clases extremo y una alta heterogeneidad morfológica (reflejada en la alta dispersión de la distancia de Hausdorff), las redes convencionales tienden a divergir o a saturar sus predicciones hacia la clase mayoritaria. En definitiva, el éxito de un sistema de aprendizaje profundo en el sector salud depende críticamente de la alineación entre la formulación matemática del modelo y la naturaleza geométrica y estadística de los datos biológicos.</p>
@@ -14282,7 +14278,6 @@ SAM/MedSAM               0.6447   0.4902   0.6473   0.7125   0.9606     45.21   
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-comparativa-final"><strong>6. Tabla Comparativa Final</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-final"><strong>7. Análisis Final</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones"><strong>8. Conclusiones</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Conclusiones</a></li>
 </ul>
 </li>
 </ul>

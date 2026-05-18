@@ -373,13 +373,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779074459.049038  208469 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-I0000 00:00:1779074459.825085  208469 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+I0000 00:00:1779074997.820201  210927 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779074998.600027  210927 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779074462.408380  208469 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779075001.259912  210927 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== PyTorch ===
@@ -395,14 +395,14 @@ Versión: 2.21.0
 GPUs: [PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779075005.835652  210927 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1779075005.843100  210927 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1779075005.848892  210927 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF operación en GPU completada ✅
 
 ✅ Todo funcionando con GPU
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779074470.305983  208469 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-W0000 00:00:1779074470.311738  208469 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-I0000 00:00:1779074470.317550  208469 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
 </pre></div>
 </div>
 </div>
@@ -430,6 +430,10 @@ I0000 00:00:1779074470.317550  208469 gpu_device.cc:2043] Created device /job:lo
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
   from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/moon/miniconda3/envs/deeplearning/lib/python3.11/site-packages/albumentations/check_version.py:147: UserWarning: Error fetching version info &lt;urlopen error [Errno 101] Network is unreachable&gt;
+  data = fetch_version_info()
 </pre></div>
 </div>
 </div>
@@ -891,7 +895,7 @@ entre imágenes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_208469/857432673.py:19: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_210927/857432673.py:19: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
   axes[1].boxplot(data_box, labels=cell_types, patch_artist=True,
 </pre></div>
 </div>
@@ -946,7 +950,7 @@ shsy5y     155.0  337.33  149.60  49.0  235.5  324.0  429.0  790.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_208469/2792024020.py:18: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_210927/2792024020.py:18: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
   axes[1].boxplot(data_box, labels=cell_types, patch_artist=True,
 </pre></div>
 </div>
@@ -1296,7 +1300,7 @@ Length: 3, dtype: str
   original_init(self, **validated_kwargs)
 </pre></div>
 </div>
-<img alt="../_images/467773a9f170a765c54b26888f0cec49648e87fde541a3e817f18a617e62f0a4.png" src="../_images/467773a9f170a765c54b26888f0cec49648e87fde541a3e817f18a617e62f0a4.png" />
+<img alt="../_images/cd5ca1d116a177cfc2a46ffd6d398081c50be62052b0ccd990c10c7139f2f0cb.png" src="../_images/cd5ca1d116a177cfc2a46ffd6d398081c50be62052b0ccd990c10c7139f2f0cb.png" />
 </div>
 </div>
 <p>Note que el pipeline completo funciona correctamente en sus tres etapas. La normalización lleva los valores de píxeles al rango [0, 1] sin alterar la información visual. El redimensionamiento a 512 × 512 conserva las estructuras celulares sin distorsiones apreciables. El data augmentation aplica transformaciones aleatorias que en algunas imágenes son sutiles y en otras más evidentes, lo cual es el comportamiento esperado dado que cada transformación tiene una probabilidad de activarse del 50%. Lo más importante es que las máscaras de la última columna siempre corresponden espacialmente a su imagen augmentada, confirmando que la sincronización entre imagen y máscara funciona correctamente.</p>
