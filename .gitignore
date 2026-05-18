@@ -1,0 +1,15 @@
+# Build
+docs/_build/
+
+# Datos y modelos pesados
+data/
+models/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Entorno
+.env
+*.egg-info/

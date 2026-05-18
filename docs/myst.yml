@@ -1,0 +1,16 @@
+version: 1
+project:
+  title: MiniProyecto Segmentación Imagenes
+  github: https://github.com/Maan0322/MiniProyecto_Imagenes
+  authors:
+    - name: Guirlessa De la Hoz
+    - name: Mariangel Mercado
+  toc:
+    - file: intro.md
+    - file: notebooks/SI_1.ipynb
+    - file: notebooks/SI_MODELS.ipynb
+    - file: notebooks/SI_MODELS_2.ipynb
+site:
+  template: book-theme
+  options:
+    base_url: /MiniProyecto_Imagenes
