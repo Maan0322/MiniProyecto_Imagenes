@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Resumen Proyecto Segmentación &#8212; My Jupyter Book</title>
+    <title>Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico &#8212; My Jupyter Book</title>
   
   
   
@@ -27,45 +27,45 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bloque 1: Segmentación de imágenes" href="notebooks/SI_1.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/INICIO_MP3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bloque 1: Segmentación de imágenes" href="SI_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -87,7 +87,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -161,13 +161,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Resumen Proyecto Segmentación
+                    Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/SI_1.html"><strong>Bloque 1: Segmentación de imágenes</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/SI_MODELS.html"><strong>5. Modelación</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SI_1.html"><strong>Bloque 1: Segmentación de imágenes</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SI_MODELS.html"><strong>5. Modelación</strong></a></li>
 
 
 
@@ -230,7 +230,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="../_sources/notebooks/INICIO_MP3.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -240,7 +240,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -306,7 +306,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Resumen Proyecto Segmentación</h1>
+    <h1>Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -316,7 +316,18 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general"><strong>Objetivo general</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-aplicado"><strong>Contexto aplicado</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biomedicina"><strong>Biomedicina</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-del-lenguaje-natural"><strong>Procesamiento del Lenguaje Natural</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets"><strong>Datasets</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentacion-de-imagenes"><strong>Segmentación de imágenes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp"><strong>NLP</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoria"><strong>Autoría</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -328,15 +339,48 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="resumen-proyecto-segmentacion">
-<h1>Resumen Proyecto Segmentación<a class="headerlink" href="#resumen-proyecto-segmentacion" title="Link to this heading">#</a></h1>
-<p>Proyecto de Segmentación de Imagenes usando Deep Learning</p>
-<section id="contenido">
-<h2>Contenido<a class="headerlink" href="#contenido" title="Link to this heading">#</a></h2>
+  <p>Proyecto Integrador de Aprendizaje Automático</p>
+<section class="tex2jax_ignore mathjax_ignore" id="segmentacion-de-celulas-e-interpretacion-de-texto-mediante-modelos-de-deep-learning-evaluacion-comparacion-y-despliegue-basico">
+<h1><strong>Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico</strong><a class="headerlink" href="#segmentacion-de-celulas-e-interpretacion-de-texto-mediante-modelos-de-deep-learning-evaluacion-comparacion-y-despliegue-basico" title="Link to this heading">#</a></h1>
+<section id="objetivo-general">
+<h2><strong>Objetivo general</strong><a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h2>
+<p>Desarrollar, entrenar, evaluar y comparar modelos de deep learning en dos dominios:</p>
 <ul class="simple">
-<li><p>Construcción Dataset y EDA</p></li>
-<li><p>Modelado</p></li>
+<li><p>Segmentación de imágenes biomédicas</p></li>
+<li><p>Clasificación de texto (NLP)</p></li>
 </ul>
+</section>
+<section id="contexto-aplicado">
+<h2><strong>Contexto aplicado</strong><a class="headerlink" href="#contexto-aplicado" title="Link to this heading">#</a></h2>
+<section id="biomedicina">
+<h3><strong>Biomedicina</strong><a class="headerlink" href="#biomedicina" title="Link to this heading">#</a></h3>
+<p>Segmentación automática de células en imágenes microscópicas para apoyar diagnósticos y análisis clínicos.</p>
+</section>
+<section id="procesamiento-del-lenguaje-natural">
+<h3><strong>Procesamiento del Lenguaje Natural</strong><a class="headerlink" href="#procesamiento-del-lenguaje-natural" title="Link to this heading">#</a></h3>
+<p>Clasificación automática de texto para aplicaciones como reclutamiento, clasificación de intenciones o atención al cliente.</p>
+</section>
+</section>
+<section id="datasets">
+<h2><strong>Datasets</strong><a class="headerlink" href="#datasets" title="Link to this heading">#</a></h2>
+<section id="segmentacion-de-imagenes">
+<h3><strong>Segmentación de imágenes</strong><a class="headerlink" href="#segmentacion-de-imagenes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/sartorius-cell-instance-segmentation/overview">Sartorius - Cell Instance Segmentation</a></p></li>
+<li><p>Datos: imágenes + máscaras en formato RLE</p></li>
+</ul>
+</section>
+<section id="nlp">
+<h3><strong>NLP</strong><a class="headerlink" href="#nlp" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/jarvis-calling-hiring-contest/overview">Jarvis Calling Hiring Contest</a></p></li>
+<li><p>Datos: textos etiquetados</p></li>
+</ul>
+</section>
+</section>
+<section id="autoria">
+<h2><strong>Autoría</strong><a class="headerlink" href="#autoria" title="Link to this heading">#</a></h2>
+<p>Guirlessa De La Hoz &amp; Mariangel Mercado</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -355,7 +399,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./."
+            path: "./notebooks"
         },
         predefinedOutput: true
     }
@@ -373,7 +417,7 @@
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="notebooks/SI_1.html"
+       href="SI_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -399,7 +443,18 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general"><strong>Objetivo general</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-aplicado"><strong>Contexto aplicado</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biomedicina"><strong>Biomedicina</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-del-lenguaje-natural"><strong>Procesamiento del Lenguaje Natural</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets"><strong>Datasets</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentacion-de-imagenes"><strong>Segmentación de imágenes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp"><strong>NLP</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoria"><strong>Autoría</strong></a></li>
 </ul>
   </nav></div>
 
@@ -448,8 +503,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Modelación" href="SI_MODELS.html" />
-    <link rel="prev" title="Resumen Proyecto Segmentación" href="../intro.html" />
+    <link rel="prev" title="Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico" href="INICIO_MP3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -135,7 +135,7 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="INICIO_MP3.html">
   
   
   
@@ -157,8 +157,8 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Resumen Proyecto Segmentación
+                <a class="reference internal" href="INICIO_MP3.html">
+                    Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico
                 </a>
             </li>
         </ul>
@@ -375,13 +375,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779075759.564314  214439 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-I0000 00:00:1779075760.399376  214439 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+I0000 00:00:1779076676.640967  218657 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779076677.681763  218657 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779075763.366731  214439 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779076681.488268  218657 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== PyTorch ===
@@ -397,14 +397,14 @@ Versión: 2.21.0
 GPUs: [PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779075767.889104  214439 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-W0000 00:00:1779075767.895787  214439 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
-I0000 00:00:1779075767.901982  214439 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TF operación en GPU completada ✅
 
 ✅ Todo funcionando con GPU
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W0000 00:00:1779076687.202235  218657 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1779076687.209833  218657 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1779076687.217032  218657 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5198 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
 </pre></div>
 </div>
 </div>
@@ -893,7 +893,7 @@ entre imágenes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_214439/857432673.py:19: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_218657/857432673.py:19: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
   axes[1].boxplot(data_box, labels=cell_types, patch_artist=True,
 </pre></div>
 </div>
@@ -948,7 +948,7 @@ shsy5y     155.0  337.33  149.60  49.0  235.5  324.0  429.0  790.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_214439/2792024020.py:18: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_218657/2792024020.py:18: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
   axes[1].boxplot(data_box, labels=cell_types, patch_artist=True,
 </pre></div>
 </div>
@@ -1298,7 +1298,7 @@ Length: 3, dtype: str
   original_init(self, **validated_kwargs)
 </pre></div>
 </div>
-<img alt="../_images/aa74e5a34cf8b0237523be95c64a2f06425e29856b7a43dc333fb32dc6d29e95.png" src="../_images/aa74e5a34cf8b0237523be95c64a2f06425e29856b7a43dc333fb32dc6d29e95.png" />
+<img alt="../_images/3f6ecd17ba40acb1c1aab1637e188207fc573d7515e0dc20bee0d2bbbc952f59.png" src="../_images/3f6ecd17ba40acb1c1aab1637e188207fc573d7515e0dc20bee0d2bbbc952f59.png" />
 </div>
 </div>
 <p>Note que el pipeline completo funciona correctamente en sus tres etapas. La normalización lleva los valores de píxeles al rango [0, 1] sin alterar la información visual. El redimensionamiento a 512 × 512 conserva las estructuras celulares sin distorsiones apreciables. El data augmentation aplica transformaciones aleatorias que en algunas imágenes son sutiles y en otras más evidentes, lo cual es el comportamiento esperado dado que cada transformación tiene una probabilidad de activarse del 50%. Lo más importante es que las máscaras de la última columna siempre corresponden espacialmente a su imagen augmentada, confirmando que la sincronización entre imagen y máscara funciona correctamente.</p>
@@ -1381,12 +1381,12 @@ modelación, evitando repetir el proceso de carga y preprocesamiento.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="INICIO_MP3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Resumen Proyecto Segmentación</p>
+        <p class="prev-next-title"><strong>Segmentación de células e interpretación de texto mediante modelos de deep learning: evaluación, comparación y despliegue básico</strong></p>
       </div>
     </a>
     <a class="right-next"
