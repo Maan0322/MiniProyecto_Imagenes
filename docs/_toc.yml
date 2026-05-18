@@ -1,5 +1,5 @@
 format: jb-book
-root: intro
+root: notebooks/INICIO_MP3
 chapters:
   - file: notebooks/SI_1
   - file: notebooks/SI_MODELS
